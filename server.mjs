@@ -23,10 +23,13 @@ createServer(async (req, res) => {
     await client.connect();
     const pokeEntry = await client.query('SELECT * from pokemon where name=$1', [poke]);
     const pokemon = pokeEntry.rows[0];
+    await client.end();
 
     console.log(pokemon);
 
+    await client.connect();
     const evolvedEntries = await client.query('SELECT * from pokemon where evolved_to=$1', [pokemon.id]);
+
     await client.end();
 
     res.end(JSON.stringify(evolvedEntries.rows));
