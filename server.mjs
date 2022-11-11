@@ -23,7 +23,7 @@ createServer(async (req, res) => {
 
     const client2 = clientGen();
     await client2.connect();
-    const evolvedEntries = await client2.query('SELECT * from pokemon where evolved_to=$1', [pokemon.id]);
+    const evolvedEntries = await client2.query('SELECT * from pokemon where id=$1', [pokemon.evolved_to]);
 
     await client2.end();
 
