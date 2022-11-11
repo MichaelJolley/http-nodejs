@@ -19,6 +19,7 @@ createServer(async (req, res) => {
 
     const poke = url.replace('/pokemon/', '');
 
+    console.log(poke);
     await client.connect();
     const pokeEntry = await client.query('SELECT * from pokemon where name=$1', [poke]);
     const pokemon = pokeEntry.rows[0];
