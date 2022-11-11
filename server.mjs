@@ -1,7 +1,7 @@
 import { createServer } from 'http';
-import { Client } from 'pg';
+import pg from 'pg';
 
-const client = new Client({
+const client = new pg.Client({
   host: process.env.PG_HOST,
   port: process.env.PG_PORT,
   user: process.env.PG_USER,
