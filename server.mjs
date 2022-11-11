@@ -7,7 +7,7 @@ const client = new pg.Client({
   user: process.env.PG_USER,
   password: process.env.PG_PASSWORD,
   database: process.env.PG_DATABASE,
-  ssl: true,
+  ssl: false,
 });
 
 createServer(async (req, res) => {
